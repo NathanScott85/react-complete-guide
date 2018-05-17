@@ -23,21 +23,26 @@ class App extends Component {
     });
   };
 
+  
+
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
+  };
+
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState({ showPersons: !doesShow });
-  };
+  }; 
 
-  deletePersonHandler = () => {
-    
-  }
   render() {
     const style = {
-      backgroundColor: "blue",
-      font: "inherit",
-      border: "1px solid red",
-      padding: "8px",
-      cursor: "pointer"
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
     };
 
     let persons = null;
@@ -45,11 +50,15 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-        {this.state.persons.map(person =>{
-          return <Person 
-          name={person.name} 
-          age={person.age}/>
-        })}
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+              />
+            );
+          })}
         </div>
       );
     }
@@ -58,7 +67,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button style={style} onClick={this.togglePersonsHandler}  />
+        <button style={style} onClick={this.togglePersonsHandler} />
         {persons}
       </div>
     );
