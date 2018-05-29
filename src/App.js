@@ -69,14 +69,18 @@ class App extends Component {
           })}
         </div>
       );
+
+      // Changes the Style when the button is clicked.
       style.backgroundColor ='blue';
     }
 
+    let classes = ['blue, bold'].join('');
 
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <p className={classes}>This is really working!</p>
+        //button when clicked shows the persons.
         <button
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
