@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium, {StyleRoot }from 'radium';
 //import radium so that I can use pseudo selectors.
 class App extends Component {
   state = {
@@ -97,6 +97,8 @@ class App extends Component {
      }
 
     return (
+      //Wrapping style root here prevents an error when using radium.
+      <StyleRoot>
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         {/*putting .join(' ') here forces the text to be bold and blue */}
@@ -107,6 +109,7 @@ class App extends Component {
           onClick={this.togglePersonsHandler}>Toggle</button>
         {persons}
       </div>
+      </StyleRoot>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
