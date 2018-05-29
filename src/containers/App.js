@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person';
-
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 class App extends Component {
   state = {
     persons: [
@@ -47,48 +47,23 @@ class App extends Component {
   render () {
 
     let persons = null;
-    let btnClass ='';
+  
    //Error boundary is a higher order component that simply wraps
    // a component with the goal of simply adding any errors that component might throw
     if ( this.state.showPersons ) {
-      persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            {/*The key always has to be on the outer element*/}
-            return <Person
-              click={() => this.deletePersonHandler(index)}
-              name={person.name} 
-              age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangedHandler(event, person.id)}/> 
-          })}
-        </div>
-      );    
+      persons = <Persons 
+        persons={this.state.persons}
+        clicked={this.deletePersonHandler}
+        changed={this.nameChangedHandler}/>;    
       
-      btnClass = classes.blue;
+     
     }
-
-    let assignedClasses = [];
-    //Changes the text of the P tag assigned to below based on
-    //the number of persons inside the clicked button.
-    if (this.state.persons.length <= 2) 
-    {
-      assignedClasses.push(classes.blue);
-    } 
-
-    if (this.state.persons.length <= 1)
-    {
-      assignedClasses.push( classes.bold) 
-     }
 
     return (
       <div className={classes.App}>
-        <h1>Hi, I'm a React App</h1>
-        {/*putting .join(' ') here forces the text to be bold and blue */}
-        <p className={assignedClasses.join(' ')}>This is really working!</p>
-        {/*button when clicked shows the persons.*/}
-        <button className={btnClass}
-          onClick={this.togglePersonsHandler}>Toggle</button>
+      <Cockpit showPersons={this.state.showPersons}
+      persons ={this.state.persons}
+      clicked={this.togglePersonsHandler}/>
         {persons}
       </div>
 
