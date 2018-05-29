@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium, {StyleRoot }from 'radium';
-//import radium so that I can use pseudo selectors.
+
 class App extends Component {
   state = {
     persons: [
@@ -54,9 +53,6 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer',
       borderRadius: '15px',
-      //this is related to the radium pseudo selectors
-      ':hover': {backgroundColor: 'lightblue', 
-      color: 'black'}
     };
 
     let persons = null;
@@ -78,9 +74,7 @@ class App extends Component {
       // Changes the Style when the mouse is 
       // over the button.
       style.backgroundColor ='blue';
-      style[':hover'] = {
-        backgroundColor: 'salmon', 
-      color: 'black'}
+     
     }
 
     let classes = [];
@@ -97,8 +91,6 @@ class App extends Component {
      }
 
     return (
-      //Wrapping style root here prevents an error when using radium.
-      <StyleRoot>
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         {/*putting .join(' ') here forces the text to be bold and blue */}
@@ -109,10 +101,10 @@ class App extends Component {
           onClick={this.togglePersonsHandler}>Toggle</button>
         {persons}
       </div>
-      </StyleRoot>
+
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
-//This is called a higher order component.
-export default Radium (App);
+
+export default App;
