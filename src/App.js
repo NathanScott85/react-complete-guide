@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -48,17 +49,18 @@ class App extends Component {
 
     let persons = null;
     let btnClass ='';
-
+   //Error boundary is a higher order component that simply wraps
+   // a component with the goal of simply adding any errors that component might throw
     if ( this.state.showPersons ) {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person
+            {/*The key always has to be on the outer element*/}
+            return <ErrorBoundary key={person.id}><Person
               click={() => this.deletePersonHandler(index)}
               name={person.name} 
               age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangedHandler(event, person.id)} />
+              changed={(event) => this.nameChangedHandler(event, person.id)}/>  </ErrorBoundary>
           })}
         </div>
       );    
