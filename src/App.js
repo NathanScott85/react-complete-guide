@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-
+import Radium from 'radium';
+//import radium so that I can use pseudo selectors.
 class App extends Component {
   state = {
     persons: [
@@ -53,6 +54,9 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer',
       borderRadius: '15px',
+      //this is related to the radium pseudo selectors
+      ':hover': {backgroundColor: 'lightblue', 
+      color: 'black'}
     };
 
     let persons = null;
@@ -71,8 +75,12 @@ class App extends Component {
         </div>
       );
 
-      // Changes the Style when the button is clicked.
+      // Changes the Style when the mouse is 
+      // over the button.
       style.backgroundColor ='blue';
+      style[':hover'] = {
+        backgroundColor: 'salmon', 
+      color: 'black'}
     }
 
     let classes = [];
@@ -103,5 +111,5 @@ class App extends Component {
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
-
-export default App;
+//This is called a higher order component.
+export default Radium (App);
