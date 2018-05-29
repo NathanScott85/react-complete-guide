@@ -45,17 +45,9 @@ class App extends Component {
   }
 
   render () {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      borderRadius: '15px',
-    };
 
     let persons = null;
+    let btnClass ='';
 
     if ( this.state.showPersons ) {
       persons = (
@@ -69,12 +61,9 @@ class App extends Component {
               changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
-      );
-
-      // Changes the Style when the mouse is 
-      // over the button.
-      style.backgroundColor ='blue';
-     
+      );    
+      
+      btnClass = classes.blue;
     }
 
     let assignedClasses = [];
@@ -96,8 +85,7 @@ class App extends Component {
         {/*putting .join(' ') here forces the text to be bold and blue */}
         <p className={assignedClasses.join(' ')}>This is really working!</p>
         {/*button when clicked shows the persons.*/}
-        <button
-          style={style}
+        <button className={btnClass}
           onClick={this.togglePersonsHandler}>Toggle</button>
         {persons}
       </div>

@@ -10,3 +10,34 @@
  font-weight: bold;
 
 }
+
+.App button {
+  border: 1px solid blue;
+  padding: 10px;
+  background-color: green;
+  font: inherit;
+  border-radius: 10px;
+  color: white;
+
+}
+
+.App button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+/*not part of his course added this in myself*/
+.App button:active {
+  background-color: aquamarine;
+  color: white;
+}
+/*not part of his course added this in myself*/
+
+/* .App button:focus {
+  background-color: bisque;
+  color: black;
+} */
+
+ .App button.blue {
+   background-color: blue;
+   color: black;
+} 
