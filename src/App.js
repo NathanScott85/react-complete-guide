@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -77,24 +77,24 @@ class App extends Component {
      
     }
 
-    let classes = [];
+    let assignedClasses = [];
     //Changes the text of the P tag assigned to below based on
     //the number of persons inside the clicked button.
     if (this.state.persons.length <= 2) 
     {
-      classes.push('blue');
+      assignedClasses.push(classes.blue);
     } 
 
     if (this.state.persons.length <= 1)
     {
-      classes.push('bold') 
+      assignedClasses.push( classes.bold) 
      }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
         {/*putting .join(' ') here forces the text to be bold and blue */}
-        <p className={classes.join(' ')}>This is really working!</p>
+        <p className={assignedClasses.join(' ')}>This is really working!</p>
         {/*button when clicked shows the persons.*/}
         <button
           style={style}
