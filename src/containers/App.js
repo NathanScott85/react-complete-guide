@@ -7,7 +7,8 @@ class App extends Component {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
       { id: 'vasdf1', name: 'Manu', age: 29 },
-      { id: 'asdf11', name: 'Steve', age: 26 }
+      { id: 'asdf11', name: 'Steve', age: 26 }, 
+      {id: '', name: '', age: ''}
     ],
     otherState: 'some other value',
     showPersons: false
@@ -54,8 +55,7 @@ class App extends Component {
       persons = <Persons 
         persons={this.state.persons}
         clicked={this.deletePersonHandler}
-        changed={this.nameChangedHandler}/>;    
-      
+        changed={this.nameChangedHandler}/>; 
      
     }
 
