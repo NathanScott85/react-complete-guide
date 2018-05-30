@@ -14,8 +14,10 @@ class App extends PureComponent {
       {id: '', name: '', age: ''}
     ],
     otherState: 'some other value',
-    showPersons: false
+    showPersons: false,
+    toggleClicked: 0
   }
+  
   }
 
   componentWillMount() {
@@ -78,7 +80,9 @@ class App extends PureComponent {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState( { showPersons: !doesShow } );
+    this.setState( { showPersons: !doesShow, 
+      toggleClicked: this.state.toggleClicked+1
+    } );
   }
 
   render () {
@@ -99,7 +103,6 @@ class App extends PureComponent {
 
     return (
       <div className={classes.App}>
-      <button onClick={()=>{this.setState({showPersons:true})}}>Show </button>
       <Cockpit 
        appTitle ={this.props.title}
       showPersons={this.state.showPersons}
