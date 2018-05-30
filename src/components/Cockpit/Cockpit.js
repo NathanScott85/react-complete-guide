@@ -23,7 +23,7 @@ const cockpit = props => {
 
   return (
     <div className={classes.Cockpit}>
-      <h1>Hi, I'm a React App</h1>
+      <h1>{props.appTitle}</h1>
       {/*putting .join(' ') here forces the text to be bold and blue */}
       <p className={assignedClasses.join(" ")}>This is really working!</p>
       {/*button when clicked shows the persons.*/}
