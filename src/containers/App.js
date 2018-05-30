@@ -20,27 +20,6 @@ class App extends PureComponent {
   
   }
 
-  componentWillMount() {
-    console.log('[App.js] Inside componentWillMount()');
-  }
-
-  componentDidMount() {
-    console.log('[App.js] Inside componentDidMount()');
-  }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('[Update App.js] Inside shouldComponentUpdate', nextProps, nextState);
-  //   return nextState.showPersons !== this.state.persons ||
-  //   nextState.showPersons !== this.showPersons;
-  // }
-
-  componentWillUpdate(nextProps, nextState) {
-    console.log('[Update App.js] componentWillUpdate', nextProps, nextState);
-  }
-  componentDidUpdate() {
-    console.log('[Update App.js] componentDidUpdate');
-  }
-
   // state = {
   //   persons: [
   //     { id: 'asfa1', name: 'Max', age: 28 },
@@ -86,9 +65,6 @@ class App extends PureComponent {
   }
 
   render () {
-
-    console.log('[App.js] Inside Render()');
-
     let persons = null;
   
    //Error boundary is a higher order component that simply wraps
