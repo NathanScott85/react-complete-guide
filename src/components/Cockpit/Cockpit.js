@@ -21,7 +21,7 @@ const cockpit = props => {
       assignedClasses.push( classes.bold) 
      }
 
-  return (
+  return (    
     <div className={classes.Cockpit}>
       <h1>{props.appTitle}</h1>
       {/*putting .join(' ') here forces the text to be bold and blue */}
@@ -31,7 +31,7 @@ const cockpit = props => {
       onClick={props.clicked}>
         Toggle
       </button>
-    </div>
+    </div> 
   );
 };
 
